@@ -56,6 +56,7 @@ adc_params_t adc_params;
 void setup() {
   Serial.begin(115200);
 
+  // 5.0Vcc, 16bit adc resolution, 16383 as conversion factor
   set_adc_params(&adc_params, 5.f, 16, 16383);
 
   resolve_params(inputs, read_temp_low, targets, params_low, &adc_params);
