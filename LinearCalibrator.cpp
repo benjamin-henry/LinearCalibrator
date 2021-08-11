@@ -1,8 +1,6 @@
 #include "LinearCalibrator.h"
 #include "Arduino.h"
 
-
-
 void set_adc_params(ADC_PARAMS adc_params, float vcc, uint32_t resolution, int32_t factor){
     adc_params->vcc = vcc;
     adc_params->adc_resolution = resolution;
@@ -10,7 +8,6 @@ void set_adc_params(ADC_PARAMS adc_params, float vcc, uint32_t resolution, int32
     adc_params->step = (float)adc_params->vcc / (float)adc_params->maximum;
     adc_params->factor = factor;
 }
-
 
 void resolve_params(int32_t *sensor_inputs, int32_t *read_values, int32_t *target_values, int32_t *output_params, ADC_PARAMS adc_params) {
     // equations are of form y = ax + b
@@ -29,7 +26,6 @@ void resolve_params(int32_t *sensor_inputs, int32_t *read_values, int32_t *targe
     output_params[1] = b_target_values - b_read_values;
 }
 
-
 void resolve_shift(int32_t *temperatures, int32_t *params_low, int32_t *params_high, int32_t *gain_params, int32_t *offset_params, ADC_PARAMS adc_params) {
     float temp_gain_a = ((float)params_high[0]-(float)params_low[0])/((float)temperatures[1]-(float)temperatures[0]);
     float temp_gain_b = (float)params_high[0] - (temp_gain_a *(float)temperatures[1]);
@@ -43,7 +39,6 @@ void resolve_shift(int32_t *temperatures, int32_t *params_low, int32_t *params_h
     offset_params[0] = temp_offset_a * adc_params->factor;
     offset_params[1] = temp_offset_b;
 }
-
 
 void compensate_params(int32_t temperature, int32_t *gain_params, int32_t *offset_params, int32_t *compensated_params, ADC_PARAMS adc_params) {
     compensated_params[0] = gain_params[0] * temperature / adc_params->factor + gain_params[1];
