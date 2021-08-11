@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map For MLP
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ADC_PARAMS	KEYWORD1
+adc_params_t	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+set_adc_params	KEYWORD2
+resolve_params	KEYWORD2
+resolve_shift	KEYWORD2
+compensate_params	KEYWORD2
+compensate_sample	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
