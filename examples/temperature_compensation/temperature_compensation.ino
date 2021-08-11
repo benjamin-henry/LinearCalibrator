@@ -7,7 +7,7 @@ int32_t temperatures[2] = {
   250, 750
 };
 
-// binary converted voltage inputs (.5V, 4.5V) with a 16 bit adc
+// binary converted voltage inputs (.5V, 4.5V) with a 16 bit adc and a 5V vcc
 int32_t inputs[2] = {
   6554,
   58982
