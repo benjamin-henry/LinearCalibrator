@@ -14,6 +14,7 @@ adc_params_t	KEYWORD1
 #######################################
 
 set_adc_params	KEYWORD2
+get_coeffs	KEYWORD2
 resolve_params	KEYWORD2
 resolve_shift	KEYWORD2
 compensate_params	KEYWORD2
